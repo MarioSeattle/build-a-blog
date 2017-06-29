@@ -18,6 +18,20 @@ class Blog(db.Model):
         self.body = body
 
 
+@app.route('/newPost', methods=['GET', 'POST'])
+def newPost():
+
+@app.route('/singleEentry', methods=['GET'])
+def singleEntry():
+
+@app.route('/blog', methods=['GET'])
+def blog():
+
+@app.route('/', methods=['GET'])
+def index():
+  
+    
+
 
 
 if __name__ == '__main__':
