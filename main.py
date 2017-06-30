@@ -21,9 +21,6 @@ class Blog(db.Model):
 @app.route('/newPost', methods=['GET', 'POST'])
 def newPost():
 
-@app.route('/singleEentry', methods=['GET'])
-def singleEntry():
-
 @app.route('/blog', methods=['GET'])
 def blog():
 
