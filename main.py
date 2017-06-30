@@ -20,16 +20,29 @@ class Blog(db.Model):
 
 @app.route('/newPost', methods=['GET', 'POST'])
 def newPost():
+     title_error = "Please fill in the title"
+     content_error = "Pleae fill in the body"
+     if request.method == 'POST':
+         blog_title = request.form['blog_title']
+         blog_content = request.form['blog_content']
+         if blog_title == '' and blog_content == '':
+             return render_template('newPost.html', title_error=title_error, content_error=content_error)
+         elif blog_title == '':
+             return render_template('newPost.html', title_error=title_error, blog_content=blog_content)
+         elif  blog_content == '':
+             return render_template('newPost.html', content_error=content_error, blog_title=blog_title)
+     
+     return render_template('newPost.html')
 
 @app.route('/blog', methods=['GET'])
 def blog():
+    blogs = Blog.query.all()
+    return render_template('blog.html', blogs=blogs)
 
 @app.route('/', methods=['GET'])
 def index():
   
-    
-
-
+    return redirect('/blog') 
 
 if __name__ == '__main__':
     app.run()
