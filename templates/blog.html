@@ -12,12 +12,12 @@
     <hr />
 
     {% if blogs|length == 0 %}
-    <p>No blogs yet</p>
+    <p>Comming up !</p>
     {% else %}
 
 
       {% for blog in blogs %}
-      <h3><a href="">{{blog.title}}</a></h3>
+      <h3><a href="./blog?id={{blog.id}}">{{blog.title}}</a></h3>
       <p>{{blog.body}}<p>
       <hr>
       {% endfor %}
