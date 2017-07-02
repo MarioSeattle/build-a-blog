@@ -42,6 +42,7 @@ def blog():
 
 @app.route('/newPost', methods=['GET', 'POST'])
 def newPost():
+    blogs = Blog.query.all()
     return render_template('newPost.html',blogs=blogs)
 
 #landing page redirected to blog
